@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "aLgOxL+BgpIoSxlPq3aysXPvQP2SXQh9OkkxY/ZPLzomDWICExNAxczfWUvboSDsJIwCvLcGuv3RXtO11S5e5A==",
+  "dgSpecHash": "kXneutetLyQAnzus7+3CrnHm1xve/iUJtMHf99wQvdu4FkZ4OwQrEJkTLhI7ctO/Qly9VcSS1R8GVFKyQDnZ1A==",
   "success": true,
   "projectFilePath": "C:\\Users\\spoojha\\source\\repos\\SimpleWebApp\\SimpleWebApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\spoojha\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\spoojha\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\spoojha\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
+    "C:\\Users\\spoojha\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\spoojha\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
+    "C:\\Users\\spoojha\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\spoojha\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

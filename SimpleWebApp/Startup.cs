@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
@@ -15,9 +16,44 @@ namespace SimpleWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<ConsoleLoggerMiddleware>(); // We are registering the custom middleware to the Service
+            services.AddControllers();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.Use(async (context, next) =>
+            {
+                var endpoint = context.GetEndpoint();
+                await next();
+            });
+
+            app.UseRouting();
+
+            app.Use(async (context, next) =>
+            {
+                var endpoint = context.GetEndpoint();
+                await next();
+            });
+            //This is used to call the routing functionality.
+            app.UseEndpoints(endpoints =>{
+                endpoints.MapGet("/hello/{name:alpha:minlength(2)?}", async context => {
+                    var name = context.GetRouteValue("name");
+                await context.Response.WriteAsync($"Hello {name}!");
+                });
+
+                 endpoints.MapControllers();
+            });
+            
+            /*app.MapGet("/hello/{name:alpha:minlength(2)?}", async context =>
+            {
+                var name = context.GetRouteValue("name");
+                await context.Response.WriteAsync($"Hello {name}!");
+            });*/
+
             /*Using AppBuilder class we can have 3 methods to configure middleware
             -> app.Run() : This is used at the end when there's no more middleware component(terminal delegates).
             -> app.Use() : This s used to connect one ore more middleware components.
@@ -71,5 +107,6 @@ namespace SimpleWebApp
                 await next();
             });
         }
+
     }
 }

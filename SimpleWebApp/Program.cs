@@ -17,17 +17,33 @@ using Microsoft.Extensions.Logging;
 
 namespace SimpleWebApp
 {
-    public class Program
+    public class Program 
     {
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
         }
-
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseStartup<Startup>();
+            })
+            .ConfigureLogging(logBuilder => {
+                logBuilder.ClearProviders();
+                logBuilder.AddConsole();
+            
             });
+
+        
+       
     }
 }
+
+ /*public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureLogging(logBuilder => {
+                logBuilder.ClearProviders();
+                logBuilder.AddConsole();
+            
+            })
+            .UseStartup<Startup>(); */

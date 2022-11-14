@@ -19,3 +19,10 @@ C:\Users\spoojha\source\repos\SimpleWebApp\obj\Debug\net6.0\refint\SimpleWebApp.
 C:\Users\spoojha\source\repos\SimpleWebApp\obj\Debug\net6.0\SimpleWebApp.pdb
 C:\Users\spoojha\source\repos\SimpleWebApp\obj\Debug\net6.0\SimpleWebApp.genruntimeconfig.cache
 C:\Users\spoojha\source\repos\SimpleWebApp\obj\Debug\net6.0\ref\SimpleWebApp.dll
+C:\Users\spoojha\source\repos\SimpleWebApp\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\spoojha\source\repos\SimpleWebApp\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\spoojha\source\repos\SimpleWebApp\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\spoojha\source\repos\SimpleWebApp\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\spoojha\source\repos\SimpleWebApp\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\spoojha\source\repos\SimpleWebApp\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\spoojha\source\repos\SimpleWebApp\obj\Debug\net6.0\SimpleWebApp.csproj.CopyComplete

@@ -1,0 +1,2 @@
+Routing is responsible for matching incoming http request and matching to apps executable endpoints.
+Routing is specified in the middleware pipeline.
