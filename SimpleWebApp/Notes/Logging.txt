@@ -1,0 +1,20 @@
+The logging providers stores in the logs, except for the console that displays the log.
+In the program.cs file, we have configured log provider:
+            ClearProviders -> Will remove all the logging providers available.
+            AddConsole -> Will add console provider service.
+In the controller file, we have called in the ILogger object which is an in built logging provider in asp.net core.
+We have called the ILogger using dependency injection.
+
+The Logging property has log levels:
+        Trace - 0
+        Debug - 1
+        Information - 2
+        Warning - 3
+        Error - 4
+        Critical - 5
+        None - 6
+We can set the log levels under appsettings.json file
+
+Each log can have a specific event id. default it is [0].
+
+
