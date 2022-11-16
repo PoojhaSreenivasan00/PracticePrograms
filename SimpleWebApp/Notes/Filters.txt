@@ -1,0 +1,23 @@
+Filters allow the code to run before and after some particular actions in the request processing pipeline.
+Filters avoid duplicating code and consolidating functionality into single page.
+
+Sample code
+------------
+
+1. Custom filter class
+
+    To create a custom filter, we need to implement an interface.
+    If using action filter, we need to implement IActionFilter interface.
+        This has two methods:
+            OnActionExecuting
+            OnActionExectued
+    Check MySampleActionFilterAttribute file for the sample code.
+
+    To register the filter created to aspcore pipeline, go to Startup.cs class.
+
+2.Startup.cs
+
+    Register the filter under ConfigureServices method.
+    Within AddControllers method, using option we can register the filters.(Look into Startup class)
+
+

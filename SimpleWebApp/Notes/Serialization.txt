@@ -1,0 +1,51 @@
+The data from API endpoints might need to retrun in different formats.
+Commonly the rertun type would be in json format. We can also return xml format or even custom data formats.
+
+Sample code
+-----------
+
+1. Controller 
+
+    This is a sample controller method
+
+            [HttpGet("{cityName}")]
+            public IActionResult Get(string cityName) // for types other than string, default Json format will be returned.
+
+            {
+                retrun Content(cityName);
+            }
+
+2. Startup
+
+    Under ConfigurationServices, using JsonSerializationOptions property we can convert the o/p json format to custom format.
+
+            services.AddControllersWithViews()
+            .AddJsonOptions(jsonOptions => 
+            {
+                jsonOptions.JsonSerializationOptions.ProprtyNamePolicy = null; // usually the json format will be camelCasing. But to change that into PascalCasing using this statement.
+            
+            });
+
+    This will be applicable accross the application endpoints. If we want to change for a particular endpoint we can do it in the controller 
+    Using JsonResult in the IActionResult we can customise the response format.
+
+            return new JsonResult(actions, new JsonSerializationOptions(){ ProprtyNamePolicy = JsonNamingPolicy.CamelCase});
+    
+    Write this within the IActionResult method.This will be customise the response from this particular endpoint.
+
+------------The above code is for json format-------------
+
+To add XML formatters:
+
+1. Startup
+
+        In the Startup file, under service.AddControllersWithViews() add one more line for XMLSerializer.
+
+            service.AddControllersWithViews()
+            .AddXmlSerializerFormatters();
+
+        This will give the o/p in xml format.
+    
+Note: In JsonResult it doesnot support Content negosiation i.e, if we see the internal methods for the property there's no Object Result specified in it.
+      so even If we use XMLFormatter, the response will be in json format.
+      
