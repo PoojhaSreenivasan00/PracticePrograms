@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -16,7 +17,9 @@ namespace SimpleWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<ConsoleLoggerMiddleware>(); // We are registering the custom middleware to the Service
-            services.AddControllers();
+            services.AddControllers(options => {
+                options.Filters.Add(new MySampleActionFilterAttribute()); // filter registration to the pipeline.
+            });
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -90,6 +93,7 @@ namespace SimpleWebApp
             
             
         }
+
 
         private static void MapHandler(IApplicationBuilder app)
         {

@@ -1,0 +1,17 @@
+The appsettings.json file is an application configuration file used to store configuration settings such as 
+database connections strings, any application scope global variables, etc.
+
+by the use of IConfiguration service interface, we can call the key-value pair that is stored int the appsettings.json file into the Startup class
+to use it in the application 
+
+There are multiple configuration sources available in the asp.net core application:
+        ->appsettings.json : 5
+        ->appsettings.{env}.json(like development) : 4
+        -> User secrets : 3
+        ->Environmental variables(launchsettings.json) : 2
+        ->Command line arguments : 1
+
+        If the configuration key has the same name in different config sources, then it will get overwrite by the high precesedent source.
+        ex:
+            if appsettings.json has key -> MyCustome key and appsettings.development.json also has the same key,
+            appsettings.development.json will overwrite the appsettings.json key value

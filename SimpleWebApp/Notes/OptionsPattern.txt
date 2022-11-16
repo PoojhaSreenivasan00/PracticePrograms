@@ -1,0 +1,68 @@
+To load the application configuration into the classes during runtime, Option Pattern is used.
+This is used to access the configuration values from instance of the class rather than injection IConfiguration service.
+Use seperate classes to represent a group of settings in isolation.
+
+Options Pattern configuration: Example code
+--------------------------------------------
+
+1. appsettings.json file
+
+    In the appsettings.json file configure the settings to access from the class.
+
+        "WeatherApi" : {
+            "Url": "http://api.weatherapi.com/v1/current.json",
+            "Key": "Get a API KEY from https://www.weatherapi.com/"
+            
+         }
+
+2. Create new class 
+
+    To load the configuration into a class durig runtime, create seperate class to hold the values loaded from the configuration.
+        
+        using System.ComponentModel.DataAnnotations;
+
+        namespace OptionsPattern.Controllers
+        {
+            public class WeatherApiOptions
+            {
+                public const string WeatherApi = "WeatherApi";
+                
+                [Required]
+                public string Url { get; set; }
+                [Required]
+                public string Key { get; set; }
+            }
+        }
+
+3. Startup class
+
+    Under configuration Services, use the configure extension method of IServiceCollection to bind settings class to configuration.
+
+        services.Configure<WeatherApiOptions>(options => Configuration.GetSection("WeatherApi").Bind(options));
+                          This is class name                                    appsettingsName
+
+
+4.Controller
+
+    To read configuration data in controller, use IOptions interface value property to retrive the instance of the settings class.
+        
+        public class WeatherForecastController : ControllerBase
+    {
+        
+        private WeatherApiOptions _weatherOptions;
+
+        public WeatherForecastController(IOptions<WeatherApiOptions> weatherOptions)
+        {
+           
+            _weatherOptions = weatherOptions.Value;
+        }
+
+        public IActionResult Get()
+        {
+            string baseUrl = _weatherOptions.Url;
+            string key = _weatherOptions.Key;
+            
+        }
+    }
+
+
